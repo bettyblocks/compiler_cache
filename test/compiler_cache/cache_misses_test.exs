@@ -14,7 +14,7 @@ defmodule Unit.CompilerCache.CacheMissesTest do
 
 
   test "compile an expression after 2 cache misses" do
-    {:ok, _} = ExpressionCache.start_link()
+    {:ok, _} = ExpressionCache.start_link([])
 
     # cache miss #1
     assert 2 = ExpressionCache.execute("1 + input", 1)
@@ -55,7 +55,7 @@ defmodule Unit.CompilerCache.CacheMissesTest do
   end
 
   test "compile an expression after 1 cache miss" do
-    {:ok, _} = DefaultExpressionCache.start_link()
+    {:ok, _} = DefaultExpressionCache.start_link([])
 
     # cache miss #1
     assert 2 = DefaultExpressionCache.execute("1 + input", 1)

@@ -29,8 +29,8 @@ defmodule Unit.CompilerCache.BenchTest do
   @expr "1000 + input"
 
   test "benchmark " do
-    {:ok, _} = NeverCompiledCache.start_link()
-    {:ok, _} = CompiledCache.start_link()
+    {:ok, _} = NeverCompiledCache.start_link([])
+    {:ok, _} = CompiledCache.start_link([])
 
     # cache miss #1
     {t1, _} =

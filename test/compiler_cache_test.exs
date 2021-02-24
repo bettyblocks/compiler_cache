@@ -33,7 +33,7 @@ defmodule Unit.CompilerCacheTest do
   end
 
   test "compiler cache" do
-    {:ok, _} = ExpressionCache.start_link()
+    {:ok, _} = ExpressionCache.start_link([])
 
     # cache miss
     assert 2 = ExpressionCache.execute("1 + input", 1)

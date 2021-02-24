@@ -57,7 +57,7 @@ defmodule CompilerCache do
   @doc """
   Start the given compiler cache
   """
-  @callback start_link() :: GenServer.on_start
+  @callback start_link([]) :: GenServer.on_start
 
   @doc """
   Create the Abstract Syntax Tree and the execution context for the given expression.
@@ -331,6 +331,7 @@ defmodule CompilerCache do
 
     quote do
       alias CompilerCache
+      use GenServer
 
       @mod_def %{
         module: __MODULE__,
@@ -350,8 +351,12 @@ defmodule CompilerCache do
       Start your compiler_cache-backed compiler process.
       The cache process is registered under the name of the module.
       """
-      def start_link() do
+      def start_link([]) do
         CompilerCache.start_link(@mod_def)
+      end
+
+      def init(mod_def) do
+        {:ok, mod_def}
       end
 
       def execute(expression, input) do

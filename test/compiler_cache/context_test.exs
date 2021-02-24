@@ -22,7 +22,7 @@ defmodule Unit.CompilerCache.ContextTest do
   end
 
   test "compiler context " do
-    {:ok, _} = Compiler.start_link()
+    {:ok, _} = Compiler.start_link([])
 
     assert 4 = Compiler.execute("square(input)", 2)
 

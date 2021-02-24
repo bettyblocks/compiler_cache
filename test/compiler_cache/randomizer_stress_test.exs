@@ -17,7 +17,7 @@ defmodule Unit.CompilerCache.RandomizerStressTest do
   @m 100
 
   test "small stresstest" do
-    {:ok, _} = ExpressionCache.start_link()
+    {:ok, _} = ExpressionCache.start_link([])
 
     1..@m
     |> Enum.map(fn(_) ->

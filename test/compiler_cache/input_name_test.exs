@@ -13,7 +13,7 @@ defmodule Unit.CompilerCache.InputNameTest do
   end
 
   test "compiler cache with 'context' as input name" do
-    {:ok, _} = ExpressionCache.start_link()
+    {:ok, _} = ExpressionCache.start_link([])
 
     # cache miss
     assert 2 = ExpressionCache.execute("1 + context", 1)
