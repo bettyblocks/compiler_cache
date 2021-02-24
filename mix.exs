@@ -5,7 +5,7 @@ defmodule CompilerCache.Mixfile do
     [
       app: :compiler_cache,
       version: File.read!("VERSION"),
-      elixir: "~> 1.3",
+      elixir: "~> 1.9",
       description: description(),
       package: package(),
       source_url: "https://github.com/arjan/compiler_cache",
@@ -30,7 +30,7 @@ defmodule CompilerCache.Mixfile do
   end
 
   def application do
-    [applications: [:logger]]
+    [extra_applications: [:logger, :crypto]]
   end
 
   defp deps do
