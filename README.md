@@ -34,7 +34,7 @@ The `create_ast/2` function must return an `{ast, opts}` tuple. The opts are the
 This cache can then be called like this:
 
 ```elixir
-{:ok, _} = MyExpressionCache.start_link()
+{:ok, _} = MyExpressionCache.start_link([])
 iex> MyExpressionCache.execute("1 + 1", nil)
 2
 iex> MyExpressionCache.execute("2 * input", 3)
