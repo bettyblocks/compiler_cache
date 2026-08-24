@@ -1,6 +1,6 @@
 # CompilerCache
 
-[![Build Status](https://travis-ci.org/arjan/decorator.png?branch=master)](https://travis-ci.org/arjan/compiler_cache)
+[![CI](https://github.com/arjan/compiler_cache/actions/workflows/ci.yml/badge.svg)](https://github.com/arjan/compiler_cache/actions/workflows/ci.yml)
 [![Hex pm](http://img.shields.io/hexpm/v/compiler_cache.svg?style=flat)](https://hex.pm/packages/compiler_cache)
 
 

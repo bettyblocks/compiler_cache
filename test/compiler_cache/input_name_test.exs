@@ -9,7 +9,6 @@ defmodule Unit.CompilerCache.InputNameTest do
       {:ok, ast} = Code.string_to_quoted(expr)
       {ast, []}
     end
-
   end
 
   test "compiler cache with 'context' as input name" do
@@ -19,5 +18,4 @@ defmodule Unit.CompilerCache.InputNameTest do
     assert 2 = ExpressionCache.execute("1 + context", 1)
     assert 5 = ExpressionCache.execute("1 + context", 4)
   end
-
 end

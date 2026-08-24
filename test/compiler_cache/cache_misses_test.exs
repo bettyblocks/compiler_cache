@@ -9,9 +9,7 @@ defmodule Unit.CompilerCache.CacheMissesTest do
       {:ok, ast} = Code.string_to_quoted(expr)
       {ast, []}
     end
-
   end
-
 
   test "compile an expression after 2 cache misses" do
     {:ok, _} = ExpressionCache.start_link()
@@ -40,7 +38,6 @@ defmodule Unit.CompilerCache.CacheMissesTest do
     assert 9 == info.slots_remaining
     assert 1 == info.cache_size
     assert 0 == info.hit_ctr_size
-
   end
 
   defmodule DefaultExpressionCache do
@@ -51,7 +48,6 @@ defmodule Unit.CompilerCache.CacheMissesTest do
       {:ok, ast} = Code.string_to_quoted(expr)
       {ast, []}
     end
-
   end
 
   test "compile an expression after 1 cache miss" do
@@ -71,7 +67,5 @@ defmodule Unit.CompilerCache.CacheMissesTest do
     assert 9999 == info.slots_remaining
     assert 1 == info.cache_size
     assert 0 == info.hit_ctr_size
-
   end
-
 end

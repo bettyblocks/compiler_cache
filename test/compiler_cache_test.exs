@@ -9,14 +9,12 @@ defmodule Unit.CompilerCacheTest do
       {:ok, ast} = Code.string_to_quoted(expr)
       {ast, []}
     end
-
   end
 
-
   test "Generated config with defaults" do
-    assert 10_000 == ExpressionCache.config.max_size
-    assert 1 == ExpressionCache.config.cache_misses
-    assert 1000 == ExpressionCache.config.max_ttl
+    assert 10_000 == ExpressionCache.config().max_size
+    assert 1 == ExpressionCache.config().cache_misses
+    assert 1000 == ExpressionCache.config().max_ttl
   end
 
   test "Override cache options" do
@@ -26,10 +24,9 @@ defmodule Unit.CompilerCacheTest do
       def create_ast(_expr), do: nil
     end
 
-    assert 66 == MyCache.config.max_size
-    assert 10 == MyCache.config.cache_misses
-    assert 123 == MyCache.config.max_ttl
-
+    assert 66 == MyCache.config().max_size
+    assert 10 == MyCache.config().cache_misses
+    assert 123 == MyCache.config().max_ttl
   end
 
   test "compiler cache" do
@@ -39,5 +36,4 @@ defmodule Unit.CompilerCacheTest do
     assert 2 = ExpressionCache.execute("1 + input", 1)
     assert 5 = ExpressionCache.execute("1 + input", 4)
   end
-
 end

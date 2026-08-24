@@ -1,7 +1,6 @@
 defmodule Unit.CompilerCache.BenchTest do
   use ExUnit.Case
 
-
   defmodule NeverCompiledCache do
     use CompilerCache, cache_misses: :none
 
@@ -10,7 +9,6 @@ defmodule Unit.CompilerCache.BenchTest do
       {:ok, ast} = Code.string_to_quoted(expr)
       {ast, []}
     end
-
   end
 
   defmodule CompiledCache do
@@ -21,9 +19,7 @@ defmodule Unit.CompilerCache.BenchTest do
       {:ok, ast} = Code.string_to_quoted(expr)
       {ast, []}
     end
-
   end
-
 
   @n 10_000
   @expr "1000 + input"
@@ -35,7 +31,7 @@ defmodule Unit.CompilerCache.BenchTest do
     # cache miss #1
     {t1, _} =
       :timer.tc(fn ->
-        Enum.each(1..@n, fn(n) ->
+        Enum.each(1..@n, fn n ->
           NeverCompiledCache.execute(@expr, n)
         end)
       end)
@@ -45,7 +41,7 @@ defmodule Unit.CompilerCache.BenchTest do
 
     {t2, _} =
       :timer.tc(fn ->
-        Enum.each(1..@n, fn(n) ->
+        Enum.each(1..@n, fn n ->
           CompiledCache.execute(@expr, n)
         end)
       end)
@@ -56,7 +52,5 @@ defmodule Unit.CompilerCache.BenchTest do
     for n <- 1..1_000_000 do
       CompiledCache.execute(@expr, n)
     end
-
   end
-
 end
