@@ -1,6 +1,6 @@
 # CompilerCache
 
-[![Build Status](https://travis-ci.org/arjan/decorator.png?branch=master)](https://travis-ci.org/arjan/compiler_cache)
+[![CI](https://github.com/arjan/compiler_cache/actions/workflows/ci.yml/badge.svg)](https://github.com/arjan/compiler_cache/actions/workflows/ci.yml)
 [![Hex pm](http://img.shields.io/hexpm/v/compiler_cache.svg?style=flat)](https://hex.pm/packages/compiler_cache)
 
 
@@ -34,7 +34,7 @@ The `create_ast/2` function must return an `{ast, opts}` tuple. The opts are the
 This cache can then be called like this:
 
 ```elixir
-{:ok, _} = MyExpressionCache.start_link()
+{:ok, _} = MyExpressionCache.start_link([])
 iex> MyExpressionCache.execute("1 + 1", nil)
 2
 iex> MyExpressionCache.execute("2 * input", 3)
